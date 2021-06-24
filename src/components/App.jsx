@@ -4,6 +4,7 @@ import { Provider, useSelector } from 'react-redux';
 import getStore from '../app/store.js';
 import WelcomeCard from './WelcomeCard.jsx';
 import QuestionCard from './QustionCard.jsx';
+import SumUp from './SumUpCard.jsx';
 
 const App = () => {
   const store = getStore();
@@ -14,6 +15,7 @@ const App = () => {
       <div className="container">
         {status === 'init' && <WelcomeCard />}
         {status === 'initialized' && <QuestionCard />}
+        {status === 'sumUp' && <SumUp />}
       </div>
     );
   };
