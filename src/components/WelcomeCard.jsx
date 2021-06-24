@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
+import { uniqueId } from 'lodash';
 
 import { getQuestions, setStatus } from '../slices/questionsSlice.js';
 import routes from '../routes.js';
@@ -14,7 +15,8 @@ const WelcomeCard = () => {
     try {
       const resp = await axios.get(routes.questionsPath());
       console.log(resp.data.results);
-      dispatch(getQuestions(resp.data.results));
+      const questionsWithId = resp.data.results.map((q) => ({ ...q, id: uniqueId() }));
+      dispatch(getQuestions(questionsWithId));
     } catch (e) {
       console.log(e);
     }
