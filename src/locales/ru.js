@@ -7,10 +7,17 @@ export default {
     easy: 'легкий',
     medium: 'средний',
     hard: 'сложный',
+    easyQuestions: 'Легкие вопросы',
+    mediumQuestions: 'Средние вопросы',
+    hardQuestions: 'Сложные вопросы',
+    summary: 'Результат',
+    yourAnswer: 'Твой ответ',
+    correctAnswer: 'Правильный ответ',
     buttons: {
       start: 'Поехали!',
       answer: 'Ответить',
       skip: 'Пропустить',
+      end: 'Завершить',
     },
   },
 };
