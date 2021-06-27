@@ -1,4 +1,3 @@
 # poll
 
-### DEMO
-[Trivia poll](https://poll-five.vercel.app/)
+### [DEMO](https://poll-five.vercel.app/)
