@@ -4,5 +4,6 @@ import App from './components/App.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/style.css';
 import './i18n.js';
+import 'babel-polyfill';
 
 render(<App />, document.querySelector('#main'));
