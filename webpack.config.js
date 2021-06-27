@@ -1,6 +1,5 @@
 /* eslint-disable functional/no-let */
 let mode = 'development';
-const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -12,15 +11,11 @@ module.exports = {
 
   mode,
   entry: {
-    app: ['babel-polyfill', './src/index.jsx'],
+    main: './src/index.jsx',
+    // app: ['babel-polyfill', './src/index.jsx'],
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-  },
-  output: {
-    // @ts-ignore
-    path: path.join(__dirname, 'dist', 'public'),
-    publicPath: '/assets/',
   },
   module: {
     rules: [
