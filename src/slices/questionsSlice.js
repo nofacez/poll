@@ -7,6 +7,7 @@ export const quesitonsSlice = createSlice({
     currentQuestionId: null,
     questions: [],
     currentAnswers: {},
+    correctAnswersCount: 0,
   },
   reducers: {
     getQuestions: (state, action) => ({
@@ -25,11 +26,16 @@ export const quesitonsSlice = createSlice({
       const { currentAnswers } = state;
       currentAnswers[questionId] = Array.isArray(answer) ? answer : [answer];
     },
+    addCorrectAnswer: (state) => {
+      const { correctAnswersCount } = state;
+      const newCount = correctAnswersCount + 1;
+      return { ...state, correctAnswersCount: newCount };
+    },
   },
 });
 
 export const {
-  getQuestions, setStatus, setCurrentQuestion, addAnswers,
+  getQuestions, setStatus, setCurrentQuestion, addAnswers, addCorrectAnswer,
 } = quesitonsSlice.actions;
 
 export default quesitonsSlice.reducer;
