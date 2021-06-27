@@ -5,11 +5,11 @@ import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import parse from 'html-react-parser';
 
-import { setStatus } from '../slices/questionsSlice.js';
+import { reset } from '../slices/questionsSlice.js';
 
 // TODO:
-// Count final score
-// Play again button
+// Count final score - done
+// Play again button - done
 // Visual improvements
 // Allow to choose categories (mb)
 // Token
@@ -29,15 +29,10 @@ const SumUp = () => {
   const hardQs = shortenedQuestions.filter(({ difficulty }) => difficulty === 'hard');
 
   const handleReplayBtnClick = () => {
-    dispatch(setStatus('init'));
+    dispatch(reset());
   };
 
-  const chooseClassname = (q) => {
-    if (currentAnswers[q.id][0] === q.correct_answer) {
-      return 'correct-answer';
-    }
-    return 'incorrect-answer';
-  };
+  const chooseClassname = (q) => ((currentAnswers[q.id][0] === q.correct_answer) ? 'correct-answer' : 'incorrect-answer');
 
   const renderResults = (arr) => (
     arr.map((q) => (

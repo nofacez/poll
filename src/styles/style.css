@@ -26,6 +26,18 @@ label {
   margin-bottom: 20px;
 }
 
+.sr-only {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+
+  white-space: nowrap;
+}
+
 .mt-10 {
   margin-top: 10px;
 }
@@ -91,6 +103,7 @@ label {
   border: 1px solid transparent;
   background: #e5edf1;
   border-radius: 5px;
+  color: #000;
 }
 
 .btn:hover {
