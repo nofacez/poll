@@ -31,11 +31,14 @@ export const quesitonsSlice = createSlice({
       const newCount = correctAnswersCount + 1;
       return { ...state, correctAnswersCount: newCount };
     },
+    reset: () => ({
+      status: 'init', currentQuestionId: null, currentAnswers: {}, correctAnswersCount: 0, questions: [],
+    }),
   },
 });
 
 export const {
-  getQuestions, setStatus, setCurrentQuestion, addAnswers, addCorrectAnswer,
+  getQuestions, setStatus, setCurrentQuestion, addAnswers, addCorrectAnswer, reset,
 } = quesitonsSlice.actions;
 
 export default quesitonsSlice.reducer;
