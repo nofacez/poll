@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable max-len */
 import React from 'react';
@@ -7,7 +8,9 @@ import { useTranslation } from 'react-i18next';
 import { Formik, Field, Form } from 'formik';
 import parse from 'html-react-parser';
 
-import { setCurrentQuestion, addAnswers, setStatus } from '../slices/questionsSlice.js';
+import {
+  setCurrentQuestion, addAnswers, setStatus, addCorrectAnswer,
+} from '../slices/questionsSlice.js';
 
 const QuestionCard = () => {
   const { t } = useTranslation();
@@ -50,11 +53,11 @@ const QuestionCard = () => {
   );
 
   const Question = () => {
-    const { question, difficulty } = currentQuestion;
+    const { question, difficulty, correct_answer } = currentQuestion;
     return (
       <div difficulty={difficulty}>
         <h3 className="question-number mb-20">
-          Вопрос
+          {t('q')}
           {' '}
           {currentQuestionId + 1}
         </h3>
@@ -68,6 +71,9 @@ const QuestionCard = () => {
             newAnswer.questionId = currentQuestion.id;
             newAnswer.answer = answer;
             dispatch(addAnswers(newAnswer));
+            if (correct_answer.toString() === answer.toString()) {
+              dispatch(addCorrectAnswer());
+            }
             if (isLastQuestion()) {
               dispatch(setStatus('sumUp'));
             } else {
@@ -80,7 +86,7 @@ const QuestionCard = () => {
               {currentQuestion.type === 'multiple'
                 ? <MultipleAnswers />
                 : <BooleanAnswers />}
-              <button type="submit" className="btn-answer">
+              <button type="submit" className="btn btn-answer">
                 {
                 isLastQuestion()
                   ? t('buttons.end')
