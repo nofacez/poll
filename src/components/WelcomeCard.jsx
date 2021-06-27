@@ -44,7 +44,7 @@ const WelcomeCard = () => {
       </ul>
       <p className="mb-20">{t('welcomeText2')}</p>
       <div className="btn-container">
-        <button type="button" className="start-btn" onClick={handleClick}>{t('buttons.start')}</button>
+        <button type="button" className="btn start-btn" onClick={handleClick}>{t('buttons.start')}</button>
       </div>
     </div>
   );
