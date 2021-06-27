@@ -1,5 +1,6 @@
 /* eslint-disable functional/no-let */
 let mode = 'development';
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -15,6 +16,11 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
+  },
+  output: {
+    // @ts-ignore
+    path: path.join(__dirname, 'dist', 'public'),
+    publicPath: '/assets/',
   },
   module: {
     rules: [
