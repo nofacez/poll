@@ -25,6 +25,7 @@
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-react": "^7.14.5",
+    "@babel/runtime": "^7.14.6",
     "@heroku/buildpack-registry": "^1.0.1",
     "@reduxjs/toolkit": "^1.6.0",
     "async-file": "^2.0.2",
@@ -61,5 +62,8 @@
     "webpack": "^5.40.0",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.14.5"
   }
 }
