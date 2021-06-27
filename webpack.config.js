@@ -12,7 +12,6 @@ module.exports = {
   mode,
   entry: {
     main: './src/index.jsx',
-    // app: ['babel-polyfill', './src/index.jsx'],
   },
   resolve: {
     extensions: ['.js', '.jsx'],
